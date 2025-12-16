@@ -1,0 +1,9 @@
+streamlit
+pandas
+numpy
+websocket-client
+statsmodels
+sqlalchemy
+requests
+pykalman
+scikit-learn
