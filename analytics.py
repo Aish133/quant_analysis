@@ -40,10 +40,18 @@ def hedge_ratio(a, b, reg_type='OLS'):
 
     # ---------- TLS ----------
     elif reg_type == 'TLS':
-        x_mean = b.mean()
-        y_mean = a.mean()
-        x_c = b - x_mean
-        y_c = a - y_mean
+        # Subsample for large datasets to avoid memory issues
+        if len(a) > 10000:
+            step = len(a) // 10000 + 1
+            a_sub = a[::step]
+            b_sub = b[::step]
+        else:
+            a_sub = a
+            b_sub = b
+        x_mean = b_sub.mean()
+        y_mean = a_sub.mean()
+        x_c = b_sub - x_mean
+        y_c = a_sub - y_mean
         A = np.column_stack([x_c, y_c])
         _, _, Vt = np.linalg.svd(A)
         return Vt[0, 1] / Vt[0, 0]

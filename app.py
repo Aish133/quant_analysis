@@ -85,27 +85,27 @@ elif len(df_a) > 10 and len(df_b) > 10:
         fig_prices = go.Figure()
         fig_prices.add_trace(go.Scatter(x=a.index, y=a['price'], name=sym_a))
         fig_prices.add_trace(go.Scatter(x=b.index, y=b['price'], name=sym_b))
-        st.plotly_chart(fig_prices, use_container_width=True)
+        st.plotly_chart(fig_prices, width='stretch')
 
         # Spread & Z-score chart
         st.subheader("Spread & Z-Score")
         fig_spread = go.Figure()
         fig_spread.add_trace(go.Scatter(x=spread.index, y=spread, name="Spread"))
         fig_spread.add_trace(go.Scatter(x=z.index, y=z, name="Z-Score"))
-        st.plotly_chart(fig_spread, use_container_width=True)
+        st.plotly_chart(fig_spread, width='stretch')
 
         # Rolling correlation chart
         st.subheader(f"Rolling Correlation ({window} periods)")
         fig_corr = go.Figure()
         fig_corr.add_trace(go.Scatter(x=corr.index, y=corr, name="Rolling Corr"))
-        st.plotly_chart(fig_corr, use_container_width=True)
+        st.plotly_chart(fig_corr, width='stretch')
 
         # Volume chart
         st.subheader("Volume")
         fig_vol = go.Figure()
         fig_vol.add_trace(go.Bar(x=a.index, y=a['size'], name=sym_a))
         fig_vol.add_trace(go.Bar(x=b.index, y=b['size'], name=sym_b))
-        st.plotly_chart(fig_vol, use_container_width=True)
+        st.plotly_chart(fig_vol, width='stretch')
 
         # ADF test trigger
         adf_trigger = st.checkbox("Run ADF Test on Spread", value=True)
@@ -145,7 +145,7 @@ elif len(df_a) > 10 and len(df_b) > 10:
         st.subheader("Z-Score Distribution")
         fig_hist = go.Figure()
         fig_hist.add_trace(go.Histogram(x=z, nbinsx=50, name="Z-Score"))
-        st.plotly_chart(fig_hist, use_container_width=True)
+        st.plotly_chart(fig_hist, width='stretch')
 
         # Correlation Matrix
         st.subheader("Correlation Matrix")

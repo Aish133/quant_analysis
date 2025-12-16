@@ -11,6 +11,7 @@ A quantitative trading application for real-time pairs trading analysis and hedg
 - Stationarity testing (ADF test) on spreads
 - Mini backtest for mean-reversion trading
 - Time-series statistics and data export
+- Alter for filtering range for zscore and spread
 
 ## Installation
 
@@ -47,6 +48,3 @@ A quantitative trading application for real-time pairs trading analysis and hedg
 - Scikit-learn
 - Plotly
 
-## License
-
-[Add license here]
